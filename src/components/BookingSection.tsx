@@ -33,25 +33,31 @@ export const BookingSection: React.FC = () => {
   };
 
   const campo =
-    'w-full px-3.5 py-2.5 text-sm text-slate-900 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500';
+    'w-full px-4 py-3 text-sm text-slate-900 bg-sky-50/60 border border-sky-100 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition-colors';
 
   return (
-    <section id="turnos" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section
+      id="turnos"
+      className="py-20 lg:py-24 bg-gradient-to-br from-sky-600 via-sky-500 to-cyan-500 border-b border-sky-200"
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-800 mb-3">
+        <div className="text-center mb-10 text-white">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-xs font-bold uppercase tracking-wider mb-4">
             <CalendarCheck className="w-4 h-4" />
             <span>Turnos</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3">
             Pedí tu turno por WhatsApp
           </h2>
-          <p className="text-base text-slate-600">
+          <p className="text-base sm:text-lg text-sky-50">
             Completá estos datos y se arma el mensaje. El consultorio te responde para confirmar día y horario.
           </p>
         </div>
 
-        <form onSubmit={enviar} className="bg-white rounded-2xl border border-slate-200 shadow-xs p-6 sm:p-8 space-y-5">
+        <form
+          onSubmit={enviar}
+          className="bg-white rounded-3xl shadow-2xl shadow-sky-950/20 p-6 sm:p-9 space-y-5"
+        >
           <div>
             <label htmlFor="nombre" className="block text-sm font-semibold text-slate-800 mb-1.5">
               Tu nombre *
@@ -124,7 +130,7 @@ export const BookingSection: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-sm transition-colors cursor-pointer"
+            className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 text-base font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-500/25 transition-all hover:-translate-y-0.5 cursor-pointer"
           >
             <WhatsAppIcon className="w-5 h-5" />
             <span>Enviar pedido por WhatsApp</span>

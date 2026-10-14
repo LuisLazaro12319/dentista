@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between gap-6 h-16 sm:h-20">
           <a
             href="#"
-            className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 whitespace-nowrap hover:text-sky-700 transition-colors"
+            className="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-sky-700 to-cyan-600 bg-clip-text text-transparent whitespace-nowrap"
           >
             {CLINIC.name}
           </a>
@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
               href={whatsappUrl(TURNO_MSG)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-sky-700 hover:bg-sky-800 rounded-lg shadow-sm transition-colors whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-md shadow-emerald-500/25 transition-all whitespace-nowrap"
             >
               <WhatsAppIcon className="w-4 h-4" />
               <span>Pedir turno</span>
@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
             href={whatsappUrl(TURNO_MSG)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold text-white bg-sky-700 rounded-lg"
+            className="mt-3 flex items-center justify-center gap-2 w-full py-3 text-sm font-bold text-white bg-[#16c55e] rounded-xl"
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span>Pedir turno por WhatsApp</span>

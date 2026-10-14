@@ -16,18 +16,26 @@ export const LocationSection: React.FC = () => {
   const { lat, lng } = CLINIC.coordinates;
 
   return (
-    <section id="ubicacion" className="py-20 bg-white border-b border-slate-200">
+    <section
+      id="ubicacion"
+      className="py-20 lg:py-24 bg-gradient-to-b from-white to-sky-50 border-b border-sky-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
-          <div className="text-xs font-semibold uppercase tracking-wider text-sky-800 mb-3">Dónde estamos</div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-            {CLINIC.street}, {CLINIC.locality}
+          <div className="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
+            Dónde estamos
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+            {CLINIC.street},{' '}
+            <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">
+              {CLINIC.locality}
+            </span>
           </h2>
-          <p className="text-base text-slate-600">{CLINIC.province}</p>
+          <p className="text-lg text-slate-600">{CLINIC.province}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+          <div className="lg:col-span-5 rounded-3xl bg-white border border-sky-100 shadow-lg shadow-sky-900/5 p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between gap-3 pb-5 border-b border-slate-100">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
                 <Clock className="w-4 h-4 text-sky-700" />
@@ -73,7 +81,7 @@ export const LocationSection: React.FC = () => {
                 href={CLINIC.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 text-white text-xs font-bold shadow-md shadow-sky-500/25 transition-all"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Cómo llegar</span>
@@ -97,7 +105,7 @@ export const LocationSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 rounded-2xl border border-slate-200 overflow-hidden h-[420px] relative">
+          <div className="lg:col-span-7 rounded-3xl border border-sky-100 shadow-lg shadow-sky-900/5 overflow-hidden h-[440px] relative">
             <iframe
               title={`Ubicación de ${CLINIC.name}`}
               src={`https://www.google.com/maps?q=${lat},${lng}&z=17&hl=es&output=embed`}
