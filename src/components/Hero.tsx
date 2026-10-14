@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { ArrowRight, Clock, MapPin, Pause, Play, Star } from 'lucide-react';
-import { CLINIC, whatsappUrl } from '../data/clinicData';
+import { ArrowRight, CalendarClock, Clock, HeartHandshake, MapPin, Pause, Play, Star } from 'lucide-react';
+import { CLINIC, HIGHLIGHTS, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
+import { GoogleBadge } from './GoogleBadge';
+
+const ICONOS = { star: Star, heart: HeartHandshake, calendar: CalendarClock } as const;
 
 const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-df-odontologia.mp4`;
 
@@ -22,7 +25,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-500 via-sky-400 to-cyan-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex items-center">
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-500 via-sky-400 to-cyan-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex flex-col">
       {/* Video de fondo (si no carga, queda el degradado celeste) */}
       <video
         ref={videoRef}
@@ -53,7 +56,7 @@ export const Hero: React.FC = () => {
         </button>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 my-auto">
         <div className="max-w-3xl [text-shadow:0_2px_14px_rgba(3,25,50,0.55)]">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-xs font-bold uppercase tracking-wider text-white mb-5 [text-shadow:none]">
             <span>Odontología integral</span>
@@ -79,6 +82,8 @@ export const Hero: React.FC = () => {
             . Pedí tu turno por WhatsApp.
           </p>
 
+          <GoogleBadge />
+
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 [text-shadow:none]">
             <a
               href={whatsappUrl(`Hola! Quisiera pedir un turno en ${CLINIC.name}.`)}
@@ -100,17 +105,6 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold [text-shadow:none]">
-            <a
-              href={CLINIC.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 hover:bg-white text-slate-900 shadow-sm transition-colors"
-            >
-              <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-              <span>
-                {CLINIC.googleRating} en Google · {CLINIC.googleReviews} opiniones
-              </span>
-            </a>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 text-slate-900 shadow-sm">
               <Clock className="w-4 h-4 text-sky-600" />
               <span>Lunes a viernes de 9 a 19 hs</span>
@@ -122,6 +116,31 @@ export const Hero: React.FC = () => {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Tres cajitas de confianza, pegadas al borde inferior del inicio */}
+      <div className="relative z-10 border-t border-white/40 bg-white/90 backdrop-blur-md text-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 grid grid-cols-3 gap-3 sm:gap-6">
+          {HIGHLIGHTS.map((h) => {
+            const Icono = ICONOS[h.icon];
+            return (
+              <div
+                key={h.title}
+                className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 text-center sm:text-left"
+              >
+                <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center">
+                  <Icono className="w-5 h-5 sm:w-6 sm:h-6" />
+                </span>
+                <span>
+                  <span className="block font-extrabold text-xs sm:text-base leading-snug text-slate-900">
+                    {h.title}
+                  </span>
+                  <span className="hidden sm:block text-sm text-slate-600">{h.text}</span>
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

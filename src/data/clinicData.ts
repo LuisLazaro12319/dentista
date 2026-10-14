@@ -26,6 +26,24 @@ export const CLINIC = {
   photo: 'images/dra-debora.jpg' as string | null,
 };
 
+export interface Highlight {
+  icon: 'star' | 'heart' | 'calendar';
+  title: string;
+  text: string;
+}
+
+// Las tres cajitas debajo del inicio. Se pueden sumar otras que el consultorio confirme
+// (por ejemplo "Clínica habilitada" o la cantidad de pacientes atendidos).
+export const HIGHLIGHTS: Highlight[] = [
+  {
+    icon: 'star',
+    title: `${CLINIC.googleRating.replace('.', ',')} en Google`,
+    text: `${CLINIC.googleReviews} reseñas de pacientes`,
+  },
+  { icon: 'heart', title: 'Atención personalizada', text: 'Cálida y cercana en cada consulta' },
+  { icon: 'calendar', title: 'Turnos rápidos', text: 'Confirmación vía WhatsApp' },
+];
+
 export interface DentalService {
   id: string;
   name: string;
