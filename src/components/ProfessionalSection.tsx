@@ -3,6 +3,8 @@ import { MapPin, Star } from 'lucide-react';
 import { CLINIC, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
 
+const FOTO = `${import.meta.env.BASE_URL}images/dra-debora.jpg`;
+
 export const ProfessionalSection: React.FC = () => {
   return (
     <section id="profesional" className="relative py-20 lg:py-24 bg-white border-b border-sky-100 overflow-hidden">
@@ -18,12 +20,20 @@ export const ProfessionalSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
-            <div className="rounded-3xl bg-gradient-to-br from-sky-500 via-sky-600 to-cyan-500 text-white p-10 flex flex-col items-center text-center shadow-xl shadow-sky-500/25">
-              <div className="w-28 h-28 rounded-full bg-white/20 border-2 border-white/50 flex items-center justify-center text-4xl font-extrabold tracking-wide shadow-inner">
-                DF
+            <div className="relative max-w-md mx-auto">
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky-400 via-cyan-300 to-sky-600 opacity-80 blur-sm" />
+              <div className="relative rounded-[1.75rem] overflow-hidden bg-sky-100 shadow-2xl shadow-sky-900/20 aspect-square">
+                <img
+                  src={FOTO}
+                  alt={`${CLINIC.professional}, odontóloga de ${CLINIC.name}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="mt-6 text-2xl font-extrabold">{CLINIC.professional}</h3>
-              <p className="text-sky-50 text-sm mt-1 font-medium">Odontóloga · {CLINIC.name}</p>
+              <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-sky-900/10 border border-sky-100 px-5 py-4 text-center">
+                <h3 className="text-xl font-extrabold text-slate-900">{CLINIC.professional}</h3>
+                <p className="text-sm text-sky-700 font-semibold mt-0.5">Odontóloga · {CLINIC.name}</p>
+              </div>
             </div>
           </div>
 

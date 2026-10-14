@@ -37,7 +37,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Barra superior con el estado del consultorio en tiempo real */}
-      <div className="bg-[#050b29] text-zinc-300 text-xs py-1.5 px-4 border-b border-white/10">
+      <div className="bg-sky-950 text-sky-100 text-xs py-1.5 px-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5 text-zinc-200">
@@ -76,11 +76,7 @@ export const Navbar: React.FC = () => {
       {/* Encabezado principal en degradado azul */}
       <header
         id="top"
-        style={{
-          background: 'linear-gradient(100deg, #0a1668 0%, #123a9e 100%)',
-          boxShadow: '0 2px 18px rgba(4,10,46,0.25)',
-        }}
-        className="sticky top-0 z-50 text-white"
+        className="sticky top-0 z-50 text-white bg-gradient-to-br from-sky-950 via-sky-900 to-cyan-900 shadow-lg shadow-sky-950/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-6">
           <a href="#top" className="flex items-center gap-3 text-white transition-opacity hover:opacity-95 shrink-0">
@@ -147,7 +143,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {open && (
-          <div className="lg:hidden bg-[#07115c] border-t border-white/10 px-6 py-5 space-y-3">
+          <div className="lg:hidden bg-sky-950 border-t border-white/10 px-6 py-5 space-y-3">
             <div className="flex flex-col space-y-3 text-sm">
               {LINKS.map((l, i) => (
                 <a
