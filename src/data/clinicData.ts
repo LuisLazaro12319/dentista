@@ -27,7 +27,7 @@ export const CLINIC = {
 };
 
 export interface Highlight {
-  icon: 'star' | 'heart' | 'calendar';
+  icon: 'star' | 'heart' | 'calendar' | 'users';
   title: string;
   text: string;
 }
@@ -35,11 +35,8 @@ export interface Highlight {
 // Las tres cajitas debajo del inicio. Se pueden sumar otras que el consultorio confirme
 // (por ejemplo "Clínica habilitada" o la cantidad de pacientes atendidos).
 export const HIGHLIGHTS: Highlight[] = [
-  {
-    icon: 'star',
-    title: `${CLINIC.googleRating.replace('.', ',')} en Google`,
-    text: `${CLINIC.googleReviews} reseñas de pacientes`,
-  },
+  // A CONFIRMAR con el consultorio: cifra de ejemplo para la demo.
+  { icon: 'users', title: '+1.000 pacientes felices', text: 'Confían en nosotros para cuidar su sonrisa' },
   { icon: 'heart', title: 'Atención personalizada', text: 'Cálida y cercana en cada consulta' },
   { icon: 'calendar', title: 'Turnos rápidos', text: 'Confirmación vía WhatsApp' },
 ];

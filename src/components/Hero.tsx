@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { ArrowRight, CalendarClock, Clock, HeartHandshake, MapPin, Pause, Play, Star } from 'lucide-react';
+import { ArrowRight, CalendarClock, Clock, HeartHandshake, MapPin, Pause, Play, Star, Users } from 'lucide-react';
 import { CLINIC, HIGHLIGHTS, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
 import { GoogleBadge } from './GoogleBadge';
 
-const ICONOS = { star: Star, heart: HeartHandshake, calendar: CalendarClock } as const;
+const ICONOS = { star: Star, heart: HeartHandshake, calendar: CalendarClock, users: Users } as const;
 
 const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-df-odontologia.mp4`;
 
