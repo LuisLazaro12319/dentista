@@ -18,20 +18,24 @@ export const LocationSection: React.FC = () => {
   return (
     <section
       id="ubicacion"
-      className="py-20 lg:py-24 bg-gradient-to-b from-white to-sky-50 border-b border-sky-100"
+      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-white to-sky-50 border-b border-sky-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
-          <div className="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
-            Dónde estamos
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+        {/* Título con el mismo estilo que las demás secciones: grande, centrado y con degradado */}
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+            <span className="bg-gradient-to-r from-sky-700 via-sky-600 to-cyan-500 bg-clip-text text-transparent">
+              Dónde estamos
+            </span>
+          </h2>
+          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400" />
+          <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-1">
             {CLINIC.street},{' '}
             <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">
               {CLINIC.locality}
             </span>
-          </h2>
-          <p className="text-lg text-slate-600">{CLINIC.province}</p>
+          </h3>
+          <p className="text-base sm:text-lg text-slate-600">{CLINIC.province}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
