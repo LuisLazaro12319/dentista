@@ -1,6 +1,0 @@
-{
-  "name": "NovaSmile Clínica Dental",
-  "description": "Clínica dental de vanguardia con sistema de reserva de citas en línea, chat integrado con WhatsApp, galería de casos clínicos interactiva, blog de salud bucodental y testimonios reales.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

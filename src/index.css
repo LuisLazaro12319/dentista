@@ -6,15 +6,3 @@
     scroll-behavior: smooth;
   }
 }
-
-/* Custom scrollbar and range styling */
-input[type="range"]::-webkit-slider-thumb {
-  pointer-events: all;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: #0284c7;
-  cursor: ew-resize;
-  border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
