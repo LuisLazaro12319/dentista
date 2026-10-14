@@ -1,21 +1,58 @@
-import React from 'react';
-import { ArrowRight, Clock, MapPin, Star } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { ArrowRight, Clock, MapPin, Pause, Play, Star } from 'lucide-react';
 import { CLINIC, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
 
+const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-df-odontologia.mp4`;
+
 export const Hero: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(true);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (playing) {
+      v.pause();
+      setPlaying(false);
+    } else {
+      v.play().catch(() => undefined);
+      setPlaying(true);
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-sky-950 to-slate-900 text-white border-b border-slate-800">
-      <div
+      {/* Video de fondo (si no carga, queda el degradado) */}
+      <video
+        ref={videoRef}
+        src={HERO_VIDEO}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
         aria-hidden="true"
-        className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-sky-500/20 blur-3xl pointer-events-none"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-32 -left-24 w-[360px] h-[360px] rounded-full bg-sky-400/10 blur-3xl pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      {/* Capas oscuras para que el texto se lea siempre */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30 pointer-events-none" />
+
+      <div className="absolute top-5 right-5 z-20">
+        <button
+          type="button"
+          onClick={togglePlay}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/70 hover:bg-slate-900/90 text-slate-200 text-xs font-medium backdrop-blur-md border border-white/10 transition-colors cursor-pointer"
+          aria-label={playing ? 'Pausar video de fondo' : 'Reproducir video de fondo'}
+        >
+          {playing ? <Pause className="w-3.5 h-3.5 text-sky-400" /> : <Play className="w-3.5 h-3.5 text-sky-400" />}
+          <span>{playing ? 'Pausar video' : 'Reproducir video'}</span>
+        </button>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-300 mb-4">
             <span>Odontología integral</span>
