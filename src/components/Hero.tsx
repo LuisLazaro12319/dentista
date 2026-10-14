@@ -22,7 +22,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-900 via-sky-700 to-cyan-600 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex items-center">
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-500 via-sky-400 to-cyan-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex items-center">
       {/* Video de fondo (si no carga, queda el degradado celeste) */}
       <video
         ref={videoRef}
@@ -37,9 +37,9 @@ export const Hero: React.FC = () => {
       />
 
       {/* Capas suaves: solo oscurecen donde está el texto, el resto del video se ve completo */}
-      <div className="absolute inset-0 bg-slate-950/20 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-sky-950/80 via-sky-950/35 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-sky-950/55 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-sky-900/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-sky-800/65 via-sky-700/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-sky-800/35 to-transparent pointer-events-none" />
 
       <div className="absolute top-5 right-5 z-20">
         <button
