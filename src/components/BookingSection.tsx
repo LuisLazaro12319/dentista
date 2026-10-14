@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CalendarCheck } from 'lucide-react';
 import { CLINIC, SERVICES, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
 
@@ -42,10 +41,6 @@ export const BookingSection: React.FC = () => {
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 text-white">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-xs font-bold uppercase tracking-wider mb-4">
-            <CalendarCheck className="w-4 h-4" />
-            <span>Turnos</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3">
             Pedí tu turno por WhatsApp
           </h2>

@@ -21,13 +21,16 @@ export const CLINIC = {
   // Calificación visible en la ficha de Google Maps.
   googleRating: '5.0',
   googleReviews: 38,
+  initials: 'DF',
+  // Foto de la profesional (ruta dentro de /public). Sin foto, se muestran las iniciales.
+  photo: 'images/dra-debora.jpg' as string | null,
 };
 
 export interface DentalService {
   id: string;
   name: string;
   description: string;
-  icon: 'stethoscope' | 'sparkles' | 'layers' | 'shield' | 'activity' | 'smile';
+  icon: 'stethoscope' | 'sparkles' | 'layers' | 'shield' | 'activity' | 'smile' | 'crown' | 'anchor' | 'gem';
 }
 
 export const SERVICES: DentalService[] = [
@@ -67,6 +70,22 @@ export const SERVICES: DentalService[] = [
     description: 'Tratamientos para mejorar el color, la forma y la armonía de tu sonrisa.',
     icon: 'smile',
   },
+];
+
+export interface TeamMember {
+  role: string;
+  /** Nombre y foto: quedan en null hasta que el consultorio los envie. */
+  name: string | null;
+  photo: string | null;
+  /** Texto breve opcional de la persona; si falta se usa uno neutro. */
+  bio?: string;
+}
+
+// Equipo de trabajo del consultorio. Completar nombre y foto de cada integrante.
+export const TEAM: TeamMember[] = [
+  { role: 'Profesional', name: CLINIC.professional, photo: CLINIC.photo },
+  { role: 'Recepcionista', name: null, photo: null },
+  { role: 'Asistente dental', name: null, photo: null },
 ];
 
 export interface ScheduleDay {

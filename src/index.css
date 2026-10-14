@@ -11,3 +11,13 @@
     scroll-margin-top: 5rem;
   }
 }
+
+/* Carrusel y cinta: sin barra de desplazamiento visible. */
+@layer base {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
