@@ -26,6 +26,14 @@ export const Navbar: React.FC = () => {
   const [status, setStatus] = useState(() => getClinicStatus());
   const [hora, setHora] = useState(() => horaLocal());
 
+  // El encabezado es fijo (sticky): un enlace a "#top" no se mueve porque ya está arriba de todo.
+  // Por eso "Inicio" y el logo suben al principio de la página con scroll.
+  const irArriba = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const id = setInterval(() => {
       setStatus(getClinicStatus());
@@ -75,11 +83,14 @@ export const Navbar: React.FC = () => {
 
       {/* Encabezado principal en degradado azul */}
       <header
-        id="top"
         className="sticky top-0 z-50 text-white bg-gradient-to-br from-sky-950 via-sky-900 to-cyan-900 shadow-lg shadow-sky-950/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-6">
-          <a href="#top" className="flex items-center gap-3 text-white transition-opacity hover:opacity-95 shrink-0">
+          <a
+            href="#top"
+            onClick={irArriba}
+            className="flex items-center gap-3 text-white transition-opacity hover:opacity-95 shrink-0"
+          >
             <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white tracking-widest text-sm shadow-inner">
               DF
             </div>
@@ -98,6 +109,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={l.href}
                 href={l.href}
+                onClick={l.href === '#top' ? irArriba : undefined}
                 className={`text-[14px] transition-colors whitespace-nowrap ${
                   i === 0 ? 'font-bold text-white' : 'font-medium text-white/85 hover:text-white'
                 }`}
@@ -149,7 +161,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={l.href === '#top' ? irArriba : () => setOpen(false)}
                   className={`text-left py-1 ${i === 0 ? 'text-white font-bold' : 'text-white/80 hover:text-white'}`}
                 >
                   {l.label}
