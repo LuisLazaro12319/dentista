@@ -6,7 +6,7 @@
 
 export const CLINIC = {
   name: 'DF. Odontología Integral',
-  professional: 'Od. Débora',
+  professional: 'Od. Débora Ferriol',
   street: 'Tagle 3602',
   locality: 'Lanús',
   province: 'Provincia de Buenos Aires',
