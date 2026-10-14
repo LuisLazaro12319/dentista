@@ -79,19 +79,20 @@ export const Hero: React.FC = () => {
             . Pedí tu turno por WhatsApp.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10 [text-shadow:none]">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 [text-shadow:none]">
             <a
               href={whatsappUrl(`Hola! Quisiera pedir un turno en ${CLINIC.name}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-base font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:px-7 sm:py-4 sm:text-base sm:gap-2.5 font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
-              <WhatsAppIcon className="w-5 h-5" />
-              <span>Pedir turno por WhatsApp</span>
+              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>Pedir turno</span>
+              <span className="hidden sm:inline">por WhatsApp</span>
             </a>
             <a
               href="#tratamientos"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold text-sky-900 bg-white hover:bg-sky-50 rounded-xl shadow-lg shadow-sky-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-sky-900 bg-white hover:bg-sky-50 rounded-xl shadow-lg shadow-sky-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>Ver tratamientos</span>
               <ArrowRight className="w-4 h-4" />
