@@ -8,6 +8,17 @@ const ICONOS = { star: Star, heart: HeartHandshake, calendar: CalendarClock, use
 const HERO_VIDEO = `${import.meta.env.BASE_URL}videos/hero-df-odontologia.mp4`;
 
 export const Hero: React.FC = () => {
+  /* Lleva a la sección con un desplazamiento explícito: no depende del salto por ancla del navegador,
+     que en algunos celulares se queda quieto cuando la página tiene cintas animadas. */
+  const irA = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const margen = parseFloat(getComputedStyle(el).scrollMarginTop) || 80;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - margen, behavior: 'smooth' });
+    window.history.replaceState(null, '', `#${id}`);
+  };
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(true);
 
@@ -86,6 +97,7 @@ export const Hero: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 [text-shadow:none]">
             <a
               href="#turnos"
+              onClick={irA('turnos')}
               className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:px-7 sm:py-4 sm:text-base sm:gap-2.5 font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <CalendarClock className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -93,6 +105,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="#tratamientos"
+              onClick={irA('tratamientos')}
               className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-sky-900 bg-white hover:bg-sky-50 rounded-xl shadow-lg shadow-sky-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>Ver tratamientos</span>
