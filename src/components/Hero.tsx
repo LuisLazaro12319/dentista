@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { ArrowRight, CalendarClock, Clock, HeartHandshake, MapPin, Pause, Play, Star, Users } from 'lucide-react';
-import { CLINIC, HIGHLIGHTS, whatsappUrl } from '../data/clinicData';
-import { WhatsAppIcon } from './BrandIcons';
+import { CLINIC, HIGHLIGHTS } from '../data/clinicData';
 import { GoogleBadge } from './GoogleBadge';
 
 const ICONOS = { star: Star, heart: HeartHandshake, calendar: CalendarClock, users: Users } as const;
@@ -86,14 +85,11 @@ export const Hero: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 [text-shadow:none]">
             <a
-              href={whatsappUrl(`Hola! Quisiera pedir un turno en ${CLINIC.name}.`)}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#turnos"
               className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:px-7 sm:py-4 sm:text-base sm:gap-2.5 font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
-              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <CalendarClock className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Pedir turno</span>
-              <span className="hidden sm:inline">por WhatsApp</span>
             </a>
             <a
               href="#tratamientos"
